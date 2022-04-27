@@ -1,9 +1,28 @@
 # p-ags_religionsgemeinschaften
 
 ```
-java -jar /Users/stefan/apps/ili2gpkg-4.3.1/ili2gpkg-4.3.1.jar --dbfile religionsgemeinschaften_edit.gpkg --strokeArcs --defaultSrsCode 2056 --createFk --modeldir ".;http://models.geo.admin.ch" --models SO_AGS_Religionsgemeinschaften_20220422  --schemaimport
+./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name ags_religionsgemeinschaften --schema-dirname schema createRolesDevelopment
+
+./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name ags_religionsgemeinschaften --schema-dirname schema createSchema configureSchema grantPrivileges
+
+./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name ags_religionsgemeinschaften --schema-dirname schema dropSchema
 ```
 
 ```
-java -jar /Users/stefan/apps/ili2gpkg-4.3.1/ili2gpkg-4.3.1.jar --dbfile religionsgemeinschaften_edit.gpkg --strokeArcs --defaultSrsCode 2056 --createFk --modeldir ".;http://models.geo.admin.ch" --models SO_AGS_Religionsgemeinschaften_20220422  --export fubar.xtf
+java -jar /Users/stefan/apps/ili2pg-4.3.1/ili2pg-4.3.1.jar --dbhost localhost --dbport 54321 --dbdatabase edit --dbusr ddluser --dbpwd ddluser --dbschema ags_religionsgemeinschaften_v1 --models SO_AGS_Religionsgemeinschaften_20220422 --export fubar.xtf
 ```
+
+
+### Symbole:
+
+SVG-Symbole immer weiss ausgefüllt. Hintergrund gemäss Auflistung. Grösse Hintergrund circa 12mm. Umrandung weiss circa 1mm. Grösse SVG circa 6.6mm (muss man rumspiele). Eventuell bissle Offset setzen.
+
+- Islam: #4e9027 / star-and-crescent-solid.svg
+- Alevitentum: #502792 / ???
+- Christentum: #00559B / cross-solid.svg
+- Hinduismus: #F97D00 / om-solid.svg
+- Buddhismus: #FCEA00 / dharmachakra-solid.svg
+- Sikh: #FF4F42 / khanda-solid.svg
+- Baha'i: #737373 / bahai-solid.svg
+- Antroposophie: #9D17B0 / place-of-worship-solid.svg
+
