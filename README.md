@@ -2,6 +2,8 @@
 
 ## Schema-Jobs
 
+Branch: `ags_religionsgemeinschaften `
+
 Edit:
 ```
 ./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name ags_religionsgemeinschaften --schema-dirname schema createRolesDevelopment
@@ -30,6 +32,9 @@ java -jar /Users/stefan/apps/ili2pg-4.3.1/ili2pg-4.3.1.jar --dbhost localhost --
 ```
 
 ## Gretl-Job
+
+Branch: `master`
+
 ```
 ./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --job-directory $PWD/ags_religionsgemeinschaften_pub 
 
